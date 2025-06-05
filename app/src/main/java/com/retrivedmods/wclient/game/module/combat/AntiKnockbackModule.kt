@@ -15,7 +15,6 @@ class AntiKnockbackModule : Module("anti_knockback", ModuleCategory.Combat) {
 
         val packet = interceptablePacket.packet
         if (packet is SetEntityMotionPacket) {
-<<<<<<< HEAD
             // Reset horizontal motion to prevent knockback
             packet.motion = Vector3f.from(
                 0f,  // Reset horizontal motion
@@ -25,7 +24,6 @@ class AntiKnockbackModule : Module("anti_knockback", ModuleCategory.Combat) {
         }
     }
 }
-=======
 
             packet.motion = Vector3f.from(
                 0f,
@@ -35,4 +33,3 @@ class AntiKnockbackModule : Module("anti_knockback", ModuleCategory.Combat) {
         }
     }
 }
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
