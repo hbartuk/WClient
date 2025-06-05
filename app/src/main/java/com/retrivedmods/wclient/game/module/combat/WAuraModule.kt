@@ -12,11 +12,7 @@ class WAuraModule : Module("WAura", ModuleCategory.Combat) {
     private var mobsOnly by boolValue("mobs_only", false)
 
     private var rangeValue by floatValue("range", 50f, 2f..50f)
-<<<<<<< HEAD
-    private var cpsValue by intValue("cps", 25, 1..50) // Very high CPS
-=======
     private var cpsValue by intValue("cps", 25, 1..50)
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     private var boost by intValue("packets", 2, 1..10)
 
     private var lastAttackNanoTime = 0L
