@@ -5,19 +5,36 @@ import com.retrivedmods.wclient.game.Module
 import com.retrivedmods.wclient.game.ModuleCategory
 import org.cloudburstmc.math.vector.Vector3i
 import org.cloudburstmc.protocol.bedrock.packet.SubChunkRequestPacket
+import kotlin.random.Random
 
 class CrashModule : Module("crash", ModuleCategory.Misc) {
+    // Можно подправить параметры под себя
+    private val packetCount = 50     // Сколько пакетов отправлять за раз
+    private val lagRadius = 10       // Радиус лагов вокруг игрока
+
     override fun beforePacketBound(interceptablePacket: InterceptablePacket) {
         if (!isEnabled) {
             return
         } else {
-            val subChunkRequestPacket = SubChunkRequestPacket().apply {
-                dimension = 0
-                subChunkPosition = Vector3i.ZERO
-                positionOffsets = Array(3000000) { Vector3i.ZERO }.toMutableList()
-            }
+            val player = session.player
+            val playerPos = player?.blockPosition ?: Vector3i.ZERO
 
-            session.clientBound(subChunkRequestPacket)
+            repeat(packetCount) {
+                val randomPos = randomNearby(playerPos, lagRadius)
+                val subChunkRequestPacket = SubChunkRequestPacket().apply {
+                    dimension = 0
+                    subChunkPosition = randomPos
+                    positionOffsets = mutableListOf(randomPos)
+                }
+                session.clientBound(subChunkRequestPacket)
+            }
         }
+    }
+
+    private fun randomNearby(center: Vector3i, radius: Int): Vector3i {
+        val dx = Random.nextInt(-radius, radius + 1)
+        val dz = Random.nextInt(-radius, radius + 1)
+        // Y оставляем как у игрока
+        return Vector3i.from(center.x() + dx, center.y(), center.z() + dz)
     }
 }
