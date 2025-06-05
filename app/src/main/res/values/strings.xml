@@ -44,11 +44,8 @@
     <string name="combat">Combat</string>
     <string name="motion">Motion</string>
     <string name="visual">Visual</string>
-<<<<<<< HEAD
-=======
     <string name="world">World</string>
     <string name="player">Player</string>
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     <string name="misc">Miscellaneous</string>
     <string name="config">Configuration</string>
     <string name="request_ignore_battery_optimization">Battery optimization must be disabled to maintain a stable connection.</string>
