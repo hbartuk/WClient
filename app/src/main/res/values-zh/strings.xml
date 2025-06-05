@@ -40,13 +40,10 @@
     <string name="login_mode_introduction">若需在线登录，请添加并选择账户；如需离线登录，请取消选择账户。</string>
     <string name="combat">战斗</string>
     <string name="motion">移动</string>
-<<<<<<< HEAD
     <string name="visual">视觉</string>
-=======
     <string name="world">世界</string>
     <string name="visual">视觉</string>
     <string name="player">玩家</string>
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     <string name="misc">杂项</string>
     <string name="config">配置</string>
     <string name="request_ignore_battery_optimization">需忽略电池优化以保持稳定连接</string>
