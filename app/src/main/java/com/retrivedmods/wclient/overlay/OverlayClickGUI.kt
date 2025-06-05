@@ -1,19 +1,5 @@
 package com.retrivedmods.wclient.overlay
 
-<<<<<<< HEAD
-import android.os.Build
-import android.view.WindowManager
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
-=======
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -33,25 +19,12 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.SaveAlt
 import androidx.compose.material.icons.rounded.Upload
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-<<<<<<< HEAD
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.compose.ui.util.fastForEach
-import com.retrivedmods.wclient.game.ModuleCategory
-import com.retrivedmods.wclient.game.ModuleContent
-import com.retrivedmods.wclient.ui.component.NavigationRailX
-import kotlin.math.sin
-=======
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -67,7 +40,6 @@ import com.retrivedmods.wclient.game.ModuleManager
 import com.retrivedmods.wclient.ui.component.NavigationRailX
 import kotlinx.coroutines.launch
 import kotlin.math.PI
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 
 class OverlayClickGUI : OverlayWindow() {
 
@@ -92,19 +64,12 @@ class OverlayClickGUI : OverlayWindow() {
 
     @Composable
     override fun Content() {
-<<<<<<< HEAD
-        Box(
-            Modifier
-                .fillMaxSize()
-                .background(Color.Black.copy(alpha = 0.6f))
-=======
         val context = LocalContext.current
 
         Box(
             Modifier
                 .fillMaxSize()
                 .background(Color.Black.copy(alpha = 0.75f))
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = null
@@ -112,50 +77,6 @@ class OverlayClickGUI : OverlayWindow() {
             contentAlignment = Alignment.Center
         ) {
             Column(
-<<<<<<< HEAD
-                Modifier.wrapContentSize().padding(20.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                RainbowText("WClient", 32f)
-                Spacer(modifier = Modifier.height(20.dp))
-
-                ElevatedCard(
-                    shape = MaterialTheme.shapes.large,
-                    modifier = Modifier.fillMaxSize(0.9f)
-                ) {
-                    Row(Modifier.fillMaxSize()) {
-                        NavigationRailX(
-                            windowInsets = WindowInsets(0, 0, 0, 0)
-                        ) {
-                            ModuleCategory.entries.fastForEach { moduleCategory ->
-                                NavigationRailItem(
-                                    selected = selectedModuleCategory === moduleCategory,
-                                    onClick = { selectedModuleCategory = moduleCategory },
-                                    icon = {
-                                        Icon(
-                                            painterResource(moduleCategory.iconResId),
-                                            contentDescription = null
-                                        )
-                                    },
-                                    label = {
-                                        Text(stringResource(moduleCategory.labelResId))
-                                    },
-                                    alwaysShowLabel = false
-                                )
-                            }
-                        }
-                        VerticalDivider()
-                        AnimatedContent(
-                            targetState = selectedModuleCategory,
-                            label = "animatedPage",
-                            modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surfaceContainer)
-                        ) { moduleCategory ->
-                            if (moduleCategory == ModuleCategory.Config) {
-                                ConfigCategoryContent()
-                            } else {
-                                ModuleContent(moduleCategory)
-                            }
-=======
                 modifier = Modifier
                     .fillMaxSize(0.95f)
                     .background(Color(0xFF1A1A1A), MaterialTheme.shapes.extraLarge)
@@ -253,7 +174,6 @@ class OverlayClickGUI : OverlayWindow() {
                             SettingsPageContent()
                         } else {
                             ModuleContent(category)
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
                         }
                     }
                 }
@@ -266,46 +186,24 @@ class OverlayClickGUI : OverlayWindow() {
         val transition = rememberInfiniteTransition()
         val phase by transition.animateFloat(
             initialValue = 0f,
-<<<<<<< HEAD
-            targetValue = 2f * Math.PI.toFloat(),
-            animationSpec = infiniteRepeatable(
-                animation = tween(durationMillis = 3000, easing = LinearEasing)
-            )
-        )
-
-        val colors = List(7) { i ->
-            val hue = (i * 360 / 7 + (phase * 180 / Math.PI).toInt()) % 360
-=======
             targetValue = (2 * PI).toFloat(),
             animationSpec = infiniteRepeatable(animation = tween(3000, easing = LinearEasing))
         )
 
         val colors = List(7) { i ->
             val hue = (i * 360 / 7 + (phase * 180 / PI).toInt()) % 360
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
             Color.hsv(hue.toFloat(), 1f, 1f)
         }
 
         Text(
             text = text,
             style = TextStyle(
-<<<<<<< HEAD
-                fontSize = fontSize.sp, // Fixed: Convert Float to TextUnit.Sp
-=======
                 fontSize = fontSize.sp,
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
                 brush = Brush.horizontalGradient(colors)
             )
         )
     }
 
-<<<<<<< HEAD
-    @Composable
-    private fun ConfigCategoryContent() {
-        // Configuration content placeholder
-    }
-}
-=======
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun SettingsPageContent() {
@@ -423,4 +321,3 @@ class OverlayClickGUI : OverlayWindow() {
         }
     }
 }
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
