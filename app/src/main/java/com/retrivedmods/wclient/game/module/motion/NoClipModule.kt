@@ -12,11 +12,7 @@ import org.cloudburstmc.protocol.bedrock.packet.RequestAbilityPacket
 import org.cloudburstmc.protocol.bedrock.packet.UpdateAbilitiesPacket
 import kotlin.collections.addAll
 
-<<<<<<< HEAD
-class NoClipModule : Module("no_clip", ModuleCategory.Misc) {
-=======
 class NoClipModule : Module("no_clip", ModuleCategory.Motion) {
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 
     private val enableNoClipAbilitiesPacket = UpdateAbilitiesPacket().apply {
         playerPermission = PlayerPermission.OPERATOR
@@ -63,13 +59,13 @@ class NoClipModule : Module("no_clip", ModuleCategory.Motion) {
                     Ability.OPERATOR_COMMANDS
                 )
             )
+            // Убираем NO_CLIP
             abilityValues.remove(Ability.NO_CLIP)
             walkSpeed = 0.1f
         })
     }
 
     private var noClipEnabled = false
-
 
     override fun beforePacketBound(interceptablePacket: InterceptablePacket) {
         val packet = interceptablePacket.packet
