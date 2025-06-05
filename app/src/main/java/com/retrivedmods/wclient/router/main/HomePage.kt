@@ -1,17 +1,9 @@
 package com.retrivedmods.wclient.router.main
 
 import android.Manifest
-<<<<<<< HEAD
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.provider.OpenableColumns
-=======
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -22,17 +14,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -40,59 +22,12 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
-<<<<<<< HEAD
-import androidx.compose.material.icons.rounded.AddPhotoAlternate
-import androidx.compose.material.icons.rounded.Edit
-import androidx.compose.material.icons.rounded.Insights
-import androidx.compose.material.icons.rounded.Pause
-import androidx.compose.material.icons.rounded.PlayArrow
-import androidx.compose.material.icons.rounded.Plumbing
-import androidx.compose.material.icons.rounded.Settings
-import androidx.compose.material.icons.rounded.Star
-import androidx.compose.material.icons.rounded.Stop
-import androidx.compose.material.icons.rounded.Upload
-=======
 import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.Pause
 import androidx.compose.material.icons.rounded.PlayArrow
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 import androidx.compose.material.icons.rounded.Whatshot
-import androidx.compose.material3.AlertDialogDefaults
-import androidx.compose.material3.BasicAlertDialog
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
-<<<<<<< HEAD
-import androidx.compose.material3.FilledTonalButton
-=======
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarResult
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.contentColorFor
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -106,12 +41,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-<<<<<<< HEAD
-
-
-import androidx.core.content.FileProvider
-=======
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
@@ -124,16 +53,8 @@ import com.retrivedmods.wclient.util.MinecraftUtils
 import com.retrivedmods.wclient.util.SnackbarHostStateScope
 import com.retrivedmods.wclient.viewmodel.MainScreenViewModel
 import kotlinx.coroutines.launch
-<<<<<<< HEAD
-import java.io.File
-=======
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 import java.net.Inet4Address
 import java.net.NetworkInterface
-
-
-
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -165,7 +86,6 @@ fun HomePageContent() {
             }
 
             Services.toggle(context, mainScreenViewModel.captureModeModel.value)
-
         }
         val postNotificationPermissionLauncher = rememberLauncherForActivityResult(
             ActivityResultContracts.RequestPermission()
@@ -258,7 +178,6 @@ fun HomePageContent() {
                     BackendCard()
                     IntroductionCard()
                     GameCard()
-
                 }
                 FloatingActionButton(
                     onClick = {
@@ -297,11 +216,7 @@ fun HomePageContent() {
                             )
                         } else {
                             Icon(
-<<<<<<< HEAD
-                            Icons.Rounded.Pause,
-=======
                                 Icons.Rounded.Pause,
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
                                 contentDescription = null
                             )
                         }
@@ -310,66 +225,6 @@ fun HomePageContent() {
             }
         }
 
-<<<<<<< HEAD
-if (showConnectionDialog) {
-    val ipAddress = remember {
-        runCatching {
-            NetworkInterface.getNetworkInterfaces().asSequence()
-                .flatMap { it.inetAddresses.asSequence() }
-                .filterIsInstance<Inet4Address>()
-                .firstOrNull { !it.isLoopbackAddress }
-                ?.hostAddress
-        }.getOrNull() ?: "127.0.0.1"
-    }
-
-    AlertDialog(
-        onDismissRequest = { showConnectionDialog = false },
-        title = {
-            Text(
-                "How to Connect",
-                style = MaterialTheme.typography.titleLarge
-            )
-        },
-        text = {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Text("To join, go to Minecraft's Friends tab and join through LAN. If LAN doesn't show up, you can add a new server in the Servers tab by entering the IP address and port provided below, then press Play.")
-
-                Text(
-                    "IP Address:",
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        fontWeight = FontWeight.Bold
-                    )
-                )
-                Text(
-                    ipAddress,
-                    style = MaterialTheme.typography.bodyLarge
-                )
-
-                Text(
-                    "Port:",
-                    style = MaterialTheme.typography.bodyMedium.copy(
-                        fontWeight = FontWeight.Bold
-                    )
-                )
-                Text(
-                    "19132",
-                    style = MaterialTheme.typography.bodyLarge
-                )
-            }
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { showConnectionDialog = false }
-            ) {
-                Text("OK")
-            }
-        }
-    )
-}
-}
-=======
         if (showConnectionDialog) {
             val ipAddress = remember {
                 runCatching {
@@ -428,7 +283,6 @@ if (showConnectionDialog) {
             )
         }
     }
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 }
 
 
@@ -506,21 +360,6 @@ private fun IntroductionCard() {
             )
             Text(
                 """
-<<<<<<< HEAD
-        - Fixed AdvanceCombatAura
-        - Added Rotation
-        - Added X Strafe
-        - LAN Problem Fixed
-        - Added Crystal Aura
-        - Added EPS (Not Stable)
-        - Added Criticals 
-        - Updated Crasher
-        - Added Blink
-        - Added AutoDisconnect
-        - Added OpFightBot
-        - Added FastStop
-        - Added AdvanceDisabler
-=======
         - Added Criticals
         - Added Tutorials
         - Added Reach
@@ -537,7 +376,6 @@ private fun IntroductionCard() {
         - Simplified Categories
         - Fixed Crash
         - Optimized Client
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
         - Use Below 1.21.60
         """.trimIndent(),
                 style = MaterialTheme.typography.bodySmall.copy(
