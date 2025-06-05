@@ -19,11 +19,7 @@ class MotionFlyModule : Module("motion_fly", ModuleCategory.Motion) {
 
     private val horizontalSpeed = floatValue("horizontalSpeed", 3.5f, 0.5f..10.0f)
     private val verticalSpeed = floatValue("verticalSpeed", 1.5f, 0.5f..5.0f)
-<<<<<<< HEAD
-    private val glideSpeed = floatValue("glideSpeed", 0.1f, -0.01f..1.0f)  // Updated glide range from -0.01 to 1
-=======
     private val glideSpeed = floatValue("glideSpeed", 0.1f, -0.01f..1.0f)
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     private val bypassMode = boolValue("lifeboatBypass", true)
     private val motionInterval = floatValue("delay", 50.0f, 10.0f..100.0f)
 
@@ -79,22 +75,6 @@ class MotionFlyModule : Module("motion_fly", ModuleCategory.Motion) {
             handleFlyAbilities(isEnabled)
 
             if (isEnabled && System.currentTimeMillis() - lastMotionTime >= motionInterval.value) {
-<<<<<<< HEAD
-                // Vertical motion (use glideSpeed value to control upwards and downwards movement)
-                val vertical = when {
-                    packet.inputData.contains(PlayerAuthInputData.WANT_UP) -> verticalSpeed.value
-                    packet.inputData.contains(PlayerAuthInputData.WANT_DOWN) -> -verticalSpeed.value
-                    bypassMode.value -> -glideSpeed.value.coerceAtLeast(-0.1f) // Glide down when in bypass mode
-                    else -> glideSpeed.value  // Use the glide speed for normal glide
-                }
-
-                // Get joystick input from motion (x: strafe, y: forward)
-                val inputX = packet.motion.x
-                val inputZ = packet.motion.y
-
-                // Get player yaw in radians
-=======
-
                 val vertical = when {
                     packet.inputData.contains(PlayerAuthInputData.WANT_UP) -> verticalSpeed.value
                     packet.inputData.contains(PlayerAuthInputData.WANT_DOWN) -> -verticalSpeed.value
@@ -102,21 +82,13 @@ class MotionFlyModule : Module("motion_fly", ModuleCategory.Motion) {
                     else -> glideSpeed.value
                 }
 
-
                 val inputX = packet.motion.x
                 val inputZ = packet.motion.y
 
-
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
                 val yaw = Math.toRadians(packet.rotation.y.toDouble()).toFloat()
                 val sinYaw = sin(yaw)
                 val cosYaw = cos(yaw)
 
-<<<<<<< HEAD
-                // Calculate directional movement based on yaw
-=======
-
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
                 val strafe = inputX * horizontalSpeed.value
                 val forward = inputZ * horizontalSpeed.value
 
