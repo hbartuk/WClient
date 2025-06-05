@@ -1,11 +1,8 @@
 package com.retrivedmods.wclient.router.main
 
-<<<<<<< HEAD
-=======
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.clickable
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -27,7 +24,7 @@ fun TutorialPageContent() {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text("WClient Tutorials") },
+                    title = { Text("WClient Туториалы") },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.surfaceContainer,
                         titleContentColor = contentColorFor(MaterialTheme.colorScheme.surfaceContainer)
@@ -46,41 +43,29 @@ fun TutorialPageContent() {
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-<<<<<<< HEAD
-                InfoCard(title = "Tutorials") {
-                    ComingSoonMessage()
-                }
-=======
                 TutorialCard(
-                    title = "📥 How To Setup WClient",
-                    description = "Learn how to install and launch WClient on your device.",
+                    title = "📥 Как установить WClient",
+                    description = "Узнайте, как установить и запустить WClient на вашем устройстве.",
                     link = "https://zany-leonie-thunderlinks-0733fa02.koyeb.app/stream?url=https://zany-leonie-thunderlinks-0733fa02.koyeb.app/file?path=/9WDJCX"
                 )
 
                 TutorialCard(
-                    title = "⚙️ How To Add Config",
-                    description = "Step-by-step guide to import and use config files.",
+                    title = "⚙️ Как добавить конфиг",
+                    description = "Пошаговая инструкция по импорту и использованию файлов конфигурации.",
                     link = "https://zany-leonie-thunderlinks-0733fa02.koyeb.app/stream?url=https://zany-leonie-thunderlinks-0733fa02.koyeb.app/file?path=/J7IUWV"
                 )
 
                 TutorialCard(
-                    title = "🌐 Join Server Without LAN",
-                    description = "Fix LAN not showing issue and join servers manually.",
+                    title = "🌐 Присоединение к серверу без LAN",
+                    description = "Исправьте проблему с отсутствием LAN и присоединяйтесь к серверам вручную.",
                     link = "https://zany-leonie-thunderlinks-0733fa02.koyeb.app/stream?url=https://zany-leonie-thunderlinks-0733fa02.koyeb.app/file?path=/27A70L"
                 )
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
             }
         }
     }
 }
 
 @Composable
-<<<<<<< HEAD
-private fun InfoCard(title: String, content: @Composable ColumnScope.() -> Unit) {
-    OutlinedCard(
-        modifier = Modifier.fillMaxWidth(),
-        shape = MaterialTheme.shapes.medium
-=======
 private fun TutorialCard(title: String, description: String, link: String) {
     val context = LocalContext.current
 
@@ -93,7 +78,6 @@ private fun TutorialCard(title: String, description: String, link: String) {
             },
         shape = MaterialTheme.shapes.medium,
         colors = CardDefaults.outlinedCardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
@@ -101,30 +85,6 @@ private fun TutorialCard(title: String, description: String, link: String) {
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.primary
             )
-<<<<<<< HEAD
-            Spacer(modifier = Modifier.height(8.dp))
-            content()
-        }
-    }
-}
-
-@Composable
-private fun ComingSoonMessage() {
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            text = "The tutorials will be available soon. Stay tuned!",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-        Button(
-            onClick = {},
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 4.dp)
-        ) {
-            Text("Coming Soon")
-=======
             Spacer(modifier = Modifier.height(6.dp))
             Text(
                 text = description,
@@ -133,11 +93,10 @@ private fun ComingSoonMessage() {
             )
             Spacer(modifier = Modifier.height(10.dp))
             Text(
-                text = "Watch Now ➜",
+                text = "Смотреть ➜",
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.secondary,
             )
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
         }
     }
 }
