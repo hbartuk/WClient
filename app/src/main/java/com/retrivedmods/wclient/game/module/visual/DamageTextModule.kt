@@ -9,11 +9,6 @@ import com.retrivedmods.wclient.game.entity.Player
 
 class DamageTextModule : Module("DamageText", ModuleCategory.Visual) {
 
-<<<<<<< HEAD
-    // Intercepting the packet to track damage events
-=======
-
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     override fun beforePacketBound(interceptablePacket: InterceptablePacket) {
         if (!isEnabled) return
 
@@ -22,47 +17,20 @@ class DamageTextModule : Module("DamageText", ModuleCategory.Visual) {
         if (packet is EntityEventPacket && packet.type == EntityEventType.HURT) {
             val entityId = packet.runtimeEntityId
 
-<<<<<<< HEAD
-            // Ignore self-damage (don't show message for local player)
+            // Не показываем сообщение о своем уроне
             if (entityId == session.localPlayer.runtimeEntityId) return
 
-            // Retrieve the player entity by runtimeEntityId from the entity map
+            // Получаем сущность по id
             val entity = session.level.entityMap[entityId]
 
-            // If the entity exists and is a player, get their username
-            if (entity is Player) {
-                val playerName = entity.username  // Assuming `username` exists
-
-                val stateText = "$playerName was damaged!"
-                val status = "§c$stateText"  // You can use colors like §a for green
-                val message = "§l§c[WClient] §8»§r $status"
-
-
-                // Send the formatted damage message to the chat
-=======
-
-            if (entityId == session.localPlayer.runtimeEntityId) return
-
-
-            val entity = session.level.entityMap[entityId]
-
-
+            // Если это игрок — выводим сообщение в чат
             if (entity is Player) {
                 val playerName = entity.username
-
-                val stateText = "$playerName§r §cEnemy Damaged"
-                val status = "§f$stateText"
-                val message = " $status"
-
-
-
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
+                val stateText = "$playerName был(а) ранен!"
+                val status = "§c$stateText"
+                val message = "§l§c[WClient] §8»§r $status"
                 session.displayClientMessage(message)
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
