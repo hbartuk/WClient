@@ -26,19 +26,16 @@ import java.util.LinkedList
 
 class PlayerInventory(private val player: LocalPlayer) : EntityInventory(player) {
 
-<<<<<<< HEAD
     // 36 (inventory) + 4 (armor) + 1 (off-hand)
     override val content = Array(41) { ItemData.AIR }
 
     var heldItemSlot = 0
         private set
-=======
 
     override val content = Array(41) { ItemData.AIR }
 
     var heldItemSlot = 0
         internal set
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 
     private var requestId = -1
     private val requestIdMap = mutableMapOf<Int, Int>()
@@ -50,11 +47,8 @@ class PlayerInventory(private val player: LocalPlayer) : EntityInventory(player)
         }
     }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     override fun onPacketBound(packet: BedrockPacket) {
         super.onPacketBound(packet)
         when (packet) {
@@ -297,11 +291,8 @@ class PlayerInventory(private val player: LocalPlayer) : EntityInventory(player)
             content[39] = value
         }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
     companion object {
         const val SLOT_HELMET = 36
         const val SLOT_CHESTPLATE = 37
