@@ -17,13 +17,8 @@ android {
         minSdk = 28
         //noinspection EditedTargetSdkVersion
         targetSdk = 35
-<<<<<<< HEAD
-        versionCode = 3
-        versionName = "3.0"
-=======
         versionCode = 7
         versionName = "7.0"
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -128,19 +123,12 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-<<<<<<< HEAD
-    implementation(platform(libs.androidx.compose.bom))
-=======
-    implementation(platform(libs.androidx.compose.bom)) // 👈 this sets the Compose version
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
+    implementation(platform(libs.androidx.compose.bom)) // this sets the Compose version
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-<<<<<<< HEAD
-=======
-    implementation("androidx.compose.material:material") // ✅ Needed for Text()
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
+    implementation("androidx.compose.material:material") // Needed for Text()
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.material.icons.extended)
     testImplementation(libs.junit)
@@ -150,8 +138,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
