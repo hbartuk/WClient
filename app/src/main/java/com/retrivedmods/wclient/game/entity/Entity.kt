@@ -18,14 +18,7 @@ import org.cloudburstmc.protocol.bedrock.packet.UpdateAttributesPacket
 import kotlin.math.sqrt
 
 @Suppress("MemberVisibilityCanBePrivate")
-<<<<<<< HEAD
 open class Entity(open val runtimeEntityId: Long, open val uniqueEntityId: Long) {
-=======
-open class Entity(open val uniqueEntityId: Long) {
-
-
-    open val runtimeEntityId: Long = uniqueEntityId
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
 
     open var posX = 0f
         set(value) {
@@ -103,11 +96,7 @@ open class Entity(open val uniqueEntityId: Long) {
 
     private val effects = mutableListOf<Effect>()
 
-<<<<<<< HEAD
-    val vec3Position: Vector3f
-=======
     open val vec3Position: Vector3f
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
         get() = Vector3f.from(posX, posY, posZ)
 
     val vec3Rotation: Vector3f
@@ -258,9 +247,4 @@ open class Entity(open val uniqueEntityId: Long) {
     override fun toString(): String {
         return "Entity(entityId=$runtimeEntityId, uniqueId=$uniqueEntityId, posX=$posX, posY=$posY, posZ=$posZ)"
     }
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9796d3532c2f1fd11b3767244b027d90deb1284c
